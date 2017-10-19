@@ -31,18 +31,16 @@
           <table id="datatables" class="table table-hover">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
+                    <th>id</th>
+                    <th>Url</th>
                     <th>CreateDate</th>
                 </tr>
             </thead>
             <tbody>
                {% for history in history_list %}
                    <tr>
-                        <td>{{ history.Id }}</td>
-                        <td>{{ history.Name }}</td>
-                        <td>{{ history.Description }}</td>
+                        <td>{{ history.id }}</td>
+                        <td>{{ history.Url }}</td>
                         <td>{{ history.CreateDate }}</td>
                     </tr>
                {% endfor%}
