@@ -15,21 +15,11 @@ manager.add_command('db', MigrateCommand)
 
 
 class UserData(db.Model):
-    __tablename__ = 'UserData'
+    __tablename__ = 'Images'
 
-    Id = db.Column(db.Integer, primary_key=True)
-    Name = db.Column(db.String(64))
-    Description = db.Column(db.String(256))
+    id = db.Column(db.Integer, primary_key=True)
+    Url = db.Column(db.String(256))
     CreateDate = db.Column(db.DateTime)
-
-    def __init__(self
-                 , Name
-                 , Description
-                 , CreateDate
-                 ):
-        self.Name = Name
-        self.Description = Description
-        self.CreateDate = CreateDate
 
 
 if __name__ == '__main__':
