@@ -9,13 +9,12 @@ app = Flask(__name__)
 @app.route('/index')
 def index():
     data = "Deploying a Flask App To Heroku"
-    data_UserData = UserData.query.all()
+    data_UserData = Images.query.all()
     history_dic = {}
     history_list = []
     for _data in data_UserData:
-        history_dic['Name'] = _data.Name
-        history_dic['Id'] = _data.Id
-        history_dic['Description'] = _data.Description
+        history_dic['ID'] = _data.id
+        history_dic['Url'] = _data.Url
         history_dic['CreateDate'] = _data.CreateDate.strftime('%Y/%m/%d %H:%M:%S')
         history_list.append(history_dic)
         history_dic = {}
@@ -24,12 +23,12 @@ def index():
 
 @app.route('/API/add_data', methods=['POST'])
 def add_data():
-    name = request.form['name']
-    description = request.form['description']
-    if name != "" and description != "":
-        add_data = UserData(
-            Name=name,
-            Description=description,
+    name = request.form['id']
+    description = request.form['Url']
+    if id != "" and description != "":
+        add_data = Images(
+            id=id,
+            Url=Url,
             CreateDate=datetime.now()
         )
         db.session.add(add_data)
